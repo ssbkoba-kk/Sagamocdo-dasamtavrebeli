@@ -1,0 +1,149 @@
+/* ---------- RESET ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- BODY ---------- */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #fff;
+  color: #333;
+}
+
+/* ---------- HEADER ---------- */
+.header {
+  padding: 25px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+}
+
+.nav a {
+  margin-left: 25px;
+  font-size: 13px;
+  text-decoration: none;
+  color: #333;
+}
+
+.nav a.active {
+  color: #d38c5f;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  background: #f6eee7;
+  padding: 80px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image {
+  position: relative;
+  width: 65%;
+}
+
+.hero-image img {
+  width: 100%;
+  display: block;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 26px;
+  color: #fff;
+}
+
+/* ---------- GALLERY ---------- */
+.gallery {
+  padding: 80px 80px 40px;
+}
+
+.gallery-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.gallery-row img {
+  width: 420px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  padding: 50px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+
+.footer-box {
+  width: 30%;
+}
+
+.book-btn {
+  padding: 10px 25px;
+  background: transparent;
+  border: 1px solid #d38c5f;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 992px) {
+  .header {
+    padding: 25px 40px;
+  }
+
+  .gallery {
+    padding: 60px 40px;
+  }
+
+  .gallery-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-image {
+    width: 90%;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+  }
+
+  .footer-box {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    display: none;
+  }
+
+  .gallery {
+    padding: 40px 20px;
+  }
+
+  .hero {
+    padding: 50px 0;
+  }
+}
