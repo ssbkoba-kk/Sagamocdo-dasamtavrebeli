@@ -1,74 +1,63 @@
-html, body {
-  height: 100%;
-  margin: 0;
-}
-
-body {
+.about-page {
   display: flex;
   flex-direction: column;
-}
-
-
-main {
-  flex: 1;
-}
-
-.about-page {
+  min-height: calc(100vh - 0px); /* ensures footer is pushed down */
   padding: 80px 20px;
+  box-sizing: border-box;
 }
 
-.about-section {
+/* -------------------------
+   ABOUT SECTIONS
+------------------------- */
+.about-page .about-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 80px;
   max-width: 1100px;
   margin: 0 auto 140px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 130px;
 }
 
-.about-section .text {
-  max-width: 500px;
+.about-page .about-section .text {
+  max-width: 600px;
   padding-top: 40px;
 }
 
-/* Headings */
-.about-section .text h2 {
+.about-page .about-section.second .text {
+  padding-left: 20px;
+}
+
+.about-page .about-section .text h2 {
   font-size: 38px;
   margin-bottom: 20px;
-  white-space: nowrap;
+  white-space: nowrap; /* keep heading in one line desktop */
 }
 
-.about-section .text p {
+.about-page .about-section .text p {
   font-size: 15px;
   line-height: 1.65;
-  max-width: 600px;
   text-align: left;
+  max-width: 100%;
 }
 
-.about-section.second .text {
-  padding-left: 40px;
-}
-
-.about-section.second .text p {
-  max-width: 550px;
-}
-
-/* Image */
-.image-wrapper {
+/* -------------------------
+   IMAGE WRAPPERS
+------------------------- */
+.about-page .about-section .image-wrapper {
   position: relative;
   max-width: 460px;
   width: 100%;
   margin: 0 auto;
 }
 
-.image-wrapper img {
+.about-page .about-section .image-wrapper img {
   width: 100%;
   display: block;
   position: relative;
   z-index: 2;
 }
 
-.image-wrapper .bg {
+.about-page .about-section .image-wrapper .bg {
   position: absolute;
   inset: 0;
   background: #f2f2f2;
@@ -76,104 +65,103 @@ main {
   z-index: 1;
 }
 
+.about-footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 60px 100px;
+    font-size: 13px;
+    border-top: 1px solid #ddd;
+}
+
+.footer-btn {
+    display: inline-block;
+    padding: 10px 30px;
+    border: 1px solid #dfa47a;
+    text-decoration: none;
+    color: #000;
+}
+
+/* Tablet / Medium screens */
 @media (max-width: 900px) {
-  .about-section {
-    gap: 90px;
+  .about-page .about-section {
+    gap: 60px;
   }
 }
 
+/* Mobile / Small screens */
 @media (max-width: 768px) {
-  .about-section {
-    grid-template-columns: 1fr;
+  /* HEADER */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .navbar nav ul {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  /* MAIN SECTIONS */
+  .about-page .about-section {
+    grid-template-columns: 1fr; /* stack image + text */
     text-align: center;
     gap: 50px;
   }
 
-  .about-section .text {
+  .about-page .about-section .text,
+  .about-page .about-section.second .text {
     max-width: 100%;
     padding-top: 0;
     padding-left: 0;
-  }
-
-  .about-section .text h2 {
-    white-space: normal;
-  }
-
-  .about-section .text p {
-    max-width: 100%;
     text-align: center;
     font-size: 14px;
   }
 
-  .about-section.second {
-    direction: rtl;
-  }
-
-  .about-section.second > * {
-    direction: ltr;
+  /* FOOTER */
+  .about-footer {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
   }
 }
 
+/* Small phones */
 @media (max-width: 480px) {
-  .about-section {
-    margin-bottom: 100px;
+  .navbar .logo {
+    font-size: 20px;
   }
 
-  .about-section .text h2 {
+  .navbar nav ul li a {
+    font-size: 14px;
+  }
+
+  .about-page .about-section .text h2 {
     font-size: 30px;
   }
 
-  .image-wrapper .bg {
+  .about-page .about-section .image-wrapper .bg {
     transform: translate(12px, 12px);
   }
 }
 
+/* Extra small phones */
 @media (max-width: 347px) {
-  .about-section .text h2 {
+  .navbar .logo {
+    font-size: 18px;
+  }
+
+  .navbar nav ul li a {
+    font-size: 12px;
+  }
+
+  .about-page .about-section .text h2 {
     font-size: 26px;
   }
 
-  .about-section .text p {
+  .about-page .about-section .text p {
     font-size: 14px;
-  }
-}
-
-@media (max-width: 900px) {
-  .navbar {
-    padding: 20px;
-  }
-
-  .navbar nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .logo {
-    text-align: center;
-    margin-bottom: 10px;
-  }
-
-  .navbar nav ul {
-    font-size: 14px;
-  }
-}
-
-.about-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 60px;
-  padding: 60px 20px;
-  width: 100%;
-}
-
-@media (max-width: 768px) {
-  .about-footer {
-    flex-direction: column;
-    text-align: center;
-    gap: 30px;
   }
 }
